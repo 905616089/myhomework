@@ -7,6 +7,7 @@
     <title>天猫页面模拟练习</title>
     <link rel="stylesheet" href="manin.css">
     <link rel="stylesheet" href="bootstrap.css">
+
 </head>
 
 <body>
@@ -94,6 +95,9 @@
     <!-- banner开始 -->
     <div class="banner">
         <div class="container container1">
+            <img src="img/shop1.jpg" alt="" class="lunbo_img">
+            <img src="img/shop2.jpg_.webp" alt="" class="lunbo_img">
+            <img src="img/shop3.jpg_.webp" alt="" class="lunbo_img">
             <div class="logo">
                 <img src="img/logo.png" alt="" class="logoimg">
             </div>
@@ -150,7 +154,11 @@
                     <a href="#">图书音像</a></li>
             </ul>
 
-
+            <div class="butt">
+                <li style="background: #fff;"></li>
+                <li></li>
+                <li></li>
+            </div>
         </div>
     </div>
     <!-- banner结束 -->
@@ -375,17 +383,50 @@
                         <div class="grid1">
                             <div class="grid1_bg">
                                 <div class="grid1_head">
-                                    <div class="grid1_text">
+                                    <div class="grid1_text" id="day" style="background-color: #00B262;">
                                         今日疯抢
                                     </div>
-                                    <div class="grid1_text">
+                                    <div class="grid1_text" id="less">
                                         量贩装
                                     </div>
                                 </div>
-                                <div class="grid1_img">
+                                <div class="grid1_img" id="eat">
                                     <a href="#">
-                                        <img src="img/dayjianguo.jpg" alt="">
+                                        <img src="img/dayjianguo.jpg">
                                     </a>
+                                    <div class="onedisplay">
+                                        <div class="textlist">
+                                            <div class="next">
+                                                <img src="https://img.alicdn.com/tfs/TB12RqQewMPMeJjy1XdXXasrXXa-23-23.png"
+                                                    alt="">
+                                                <span>零食欢乐购</span>
+                                            </div>
+                                            <div>
+                                                <span class="textlist2">爆款直降</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="grid1_img" id="oil" style="display: none;">
+                                    <a href="#">
+                                        <img src="img/caiziyou.jpg">
+                                    </a>
+                                    <div class="onedisplay">
+                                        <div class="textlist">
+                                            <div class="next">
+                                                <img src="https://img.alicdn.com/tfs/TB12RqQewMPMeJjy1XdXXasrXXa-23-23.png"
+                                                    alt="">
+                                                <span>爆款直降</span>
+                                            </div>
+                                            <div>
+                                                <span class="textlist2">粮油调味</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
                                 </div>
                             </div>
 
@@ -1279,7 +1320,7 @@
                     <div class="frist">
                         浙江省网络食品销售第三方平台提供者备案：
                         <span> 浙网食A33010002</span>
-                        <span class="span1">  12318举报</span>
+                        <span class="span1"> 12318举报</span>
                     </div>
                     <div class="frist">
                         © 2003-2020 TMALL.COM 版权所有
@@ -1295,6 +1336,38 @@
 
     </footer>
     <!-- foot结束 -->
+    <!-- 顶部搜索栏开始 -->
+    <div class="topsearch">
+        <div class="container">
+
+            <div class="search">
+                <input type="text" placeholder="搜索 天猫 商品/品牌/店铺">
+                <button class="submit">
+                    搜索
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="fenlei">
+        <ul>
+            <li>导航</li>
+            <li>天猫超市</li>
+            <li>天猫国际</li>
+            <li>美丽人生</li>
+            <li>酷店潮玩</li>
+            <li>居家生活</li>
+            <li>打造爱巢</li>
+            <li>户外出行</li>
+            <li>猜你喜欢</li>
+            <li>顶部</li>
+        </ul>
+    </div>
+    <!-- 顶部搜索栏结束 -->
+    <script src="aniMath.js"></script>
+    <script src="main.js"></script>
+
 </body>
 
 </html>
