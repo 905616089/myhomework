@@ -86,7 +86,6 @@ function animate(obj, attrObj, duration, fn, callback) {
     var change = {};
     var time = 0;
     var fn = fn || Tween.Linear;
-    console.log(fn);
     for (var i in attrObj) {
         start[i] = css(obj, i);
 
@@ -109,14 +108,18 @@ function animate(obj, attrObj, duration, fn, callback) {
         }
     }, 50);
 }
+
+
+
 var imgs = document.querySelectorAll(".lunbo_img");
 var but = document.querySelectorAll(".butt li");
 
 var num = 0;
 
-setInterval(() => {
+
+
+var t = setInterval(() => {
     num++;
-    console.log(imgs.length)
     if (num > imgs.length - 1) {
         num = 0;
     }
@@ -133,6 +136,36 @@ setInterval(() => {
         but[num].style.background = "#fff"
     })
 }, 3000);
+
+
+for (let h = 0; h < but.length; h++) {
+    num = h;
+    but[h].onclick = function () {
+        console.log("点击 " + h)
+        console.log(but[h]);
+        for (var k = 0; k < but.length; k++) {
+            imgs[k].style.opacity = 0;
+            imgs[k].style.zIndex = 0;
+            but[k].style.background = "#000";
+            but[k].style.opacity = 0.3;
+        }
+
+        animate(imgs[h], {
+            opacity: 1
+        }, 300, Tween.Linear, function () {
+            imgs[h].style.zIndex = 1;
+            but[h].style.background = "#fff";
+        })
+        console.log(imgs[h]);
+        clearInterval(t);
+    }
+
+
+}
+
+
+
+
 
 var topsearch = document.querySelector(".topsearch");
 var fenlei = document.querySelector(".fenlei");
