@@ -280,10 +280,37 @@ for (let h = 0; h < but.length; h++) {
             but[h].style.background = "#fff";
         })
         console.log(imgs[h]);
-        clearInterval(t);
+        // 
+        num=h;
     }
 
 
+}
+
+for(let k=0;k<but.length; k++){
+    imgs[k].onmouseover=function(){
+        clearInterval(t);
+    }
+    imgs[k].onmouseout=function(){
+        t=setInterval(() => {
+            num++;
+            if (num > imgs.length - 1) {
+                num = 0;
+            }
+            for (var i = 0; i < imgs.length; i++) {
+                imgs[i].style.opacity = 0;
+                imgs[i].style.zIndex = 0;
+                but[i].style.background = "#000";
+                but[i].style.opacity = 0.3;
+            }
+            animate(imgs[num], {
+                opacity: 1
+            }, 300, Tween.Linear, function () {
+                imgs[num].style.zIndex = 1;
+                but[num].style.background = "#fff"
+            })
+        }, 3000);
+    }
 }
 
 
