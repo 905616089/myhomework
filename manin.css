@@ -8,13 +8,82 @@ body{
     height: 5500px;
 
 }
+
 /* 导航栏开始 */
+.container4{
+    position: relative;
+}
 .navigation{
 
     height: 33px;
     background-color: #f2f2f2;
+    
 }
-
+.baoguo{
+    float: left;
+    position: relative;
+}
+.baoguo1{
+    float: left;
+    position: relative;
+}
+.mytaobao_list{
+    width: 80px;
+    background: white;
+    position: absolute;
+    height: 54px;
+    top:33px;
+    left: 0px;
+    border: solid #eee;
+    border-width: 0 1px 1px;
+    z-index: 5;
+    display: none;
+}
+.mytaobao_list a{
+    font-size: 12px;
+    display: block;
+    margin-top: 5px;
+    color:#666666;
+    text-align: center;
+}
+.collection_list{
+    width: 80px;
+    background: white;
+    position: absolute;
+    height: 54px;
+    top:33px;
+    left: 0px;
+    border: solid #eee;
+    border-width: 0 1px 1px;
+    z-index: 5;
+    display: none;
+}
+.collection .collection_list a{
+    font-size: 12px;
+    display: block;
+    height: 25px;
+    color:#666666;
+    text-align: center;
+}
+.baoguo_list,.baoguo3_list{
+    width: 80px;
+    background: white;
+    position: absolute;
+    height: 54px;
+    top:33px;
+    left: 0px;
+    border: solid #eee;
+    border-width: 0 1px 1px;
+    z-index: 5;
+    display: none;
+}
+.baoguo_list a,.baoguo3_list a{
+    font-size: 12px;
+    display: block;
+    height: 25px;
+    color:#666666;
+    text-align: center;
+}
 .left{
     float: left;
     margin-left: -15px;
@@ -51,13 +120,20 @@ body{
     margin-right: 30px;
 }
 .my_taobao{
-    float: left;
+   float: left;
     font-size: 12px;
     line-height: 33px;
     text-align: center;
     color: #999999;
     position: relative;
     padding: 0 14px 0 10px;
+}
+.my_taobao:hover{
+    background: white;
+}
+.right a:hover{
+    color: red;
+    text-decoration: none;
 }
 .my_taobao b{
     float: left;
@@ -457,6 +533,37 @@ body{
     line-height: 108px;
     background-color: white;
     box-sizing: border-box;
+}
+.li1black{
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.8);
+    position: absolute;
+    top:0px;
+    left: 0px;
+    display: none;
+}
+.li1black span{
+    margin-top: 30px;
+    display: block;
+    width: 50px;
+    height: 25px;
+    line-height: 25px;
+    color: white;
+    margin-left: 35px;
+}
+.butli1{
+
+    color: #fff;
+    width: 63px;
+    height: 18px;
+    font-size: 12px;
+    line-height: 15px;
+    background-color: #FF0036;
+    border-radius: 9px;
+    border: none;
+    float: left;
+    margin-left: 30px;
 }
 .li1 img{
     width: 122px;
@@ -972,6 +1079,13 @@ body{
 .about .span1{
     margin-left: 100px;
 }
+ .img1 .mark{
+    display: inline-block;
+    background-color: #333;
+    width: 5px;
+    height: 18px;
+    vertical-align: middle;
+}
 /* foot结束 */
 .topsearch{
     display: block;
@@ -1013,10 +1127,109 @@ body{
     text-decoration: none;
     background-color: rgba(0,0,0,.6);
     font-size: 12px;
+    cursor: pointer;
 }
 .fenlei ul li:nth-child(1){
     line-height: 35px;
+    background: #ff0036;
+    
 }
+.fenlei ul li[color=green]:hover{
+    background:green !important;
+    cursor: pointer;
+}
+.fenlei ul li[color=black]:hover{
+
+    background: black !important;
+    cursor: pointer;
+}
+.fenlei ul li:[color=pink]:hover{
+
+    background: pink !important;
+    cursor: pointer;
+}
+.fenlei ul li[color=blue]:hover{
+  
+    background:blue !important;
+    cursor: pointer;
+}
+.fenlei ul li[color=green]:hover{
+
+    background: green;
+    cursor: pointer !important;
+}
+.fenlei ul li[color=pink]:hover{
+
+    background: pink !important;
+    cursor: pointer;
+}
+.fenlei ul li[color=blue]:hover{
+  
+    background: blue !important;
+    cursor: pointer;
+}
+.fenlei ul li[color=wheat]:hover{
+  
+    background: wheat !important;
+    cursor: pointer;
+}
+
+
 .fenlei ul li:last-child{
     line-height: 35px;
+    background:  rgba(0,0,0,.3);
+    cursor: pointer;
+}
+/* 页面动态 */
+.shopList{
+    height: 500px;
+    width: 852px;
+    left: 200px;
+    top:0px;
+    position: absolute;
+    background-color: #fff;
+    z-index: 5;
+    display: none;
+}
+.shopList_1{
+    float: left;
+    width: 583px;
+    height: 462px;
+    margin: 19px 30px;
+    overflow: hidden;
+
+}
+.shopLine{
+
+    width: 550px;
+    height: 60px;
+    float: left;
+}
+.tittle{
+    font-size: 14px;
+    font-weight: 700;
+    width: 60px;
+    text-align: center;
+    color: #000;
+    float: left;
+    margin-top: 25px;
+    margin-left: 25px;
+
+}
+.shopplist{
+    float: left;
+    width: 350px;
+   
+    height: 60px;
+    margin-left: 20px;
+    padding-top: 20px;
+    border-bottom: 1px dashed #999999;
+}
+.shopplist a{
+    text-decoration: none;
+    color: black;
+    margin-left: 5px;
+}
+.shopplist a:nth-of-type(2n){
+    color: red;
 }

@@ -1,3 +1,118 @@
+var sortlist = document.querySelectorAll(".nav1 li");
+var shopList = document.querySelectorAll(".shopList");
+
+
+for (let d = 0; d < sortlist.length; d++) {
+    sortlist[d].onmouseover = function () {
+        for (var g = 0; g < sortlist.length; g++) {
+            shopList[g].style.display = "none";
+        }
+        shopList[d].style.display = "block";
+    }
+    sortlist[d].onmouseout = function () {
+
+        shopList[d].style.display = "none";
+
+
+    }
+}
+for (let d = 0; d < sortlist.length; d++) {
+    shopList[d].onmouseover = function () {
+        shopList[d].style.display = "block";
+    }
+    shopList[d].onmouseout = function () {
+        shopList[d].style.display = "none";
+    }
+
+}
+
+var mytaobao = document.querySelector(".baoguo");
+var mytaobaolist = document.querySelector(".mytaobao_list");
+mytaobao.onmouseover = function () {
+    mytaobaolist.style.display = "block";
+}
+mytaobao.onmouseout = function () {
+    mytaobaolist.style.display = "none";
+}
+mytaobaolist.onmouseover = function () {
+    mytaobaolist.style.display = "block";
+    mytaobao.style.background = "white";
+}
+mytaobaolist.onmouseout = function () {
+    mytaobaolist.style.display = "none";
+    mytaobao.style.background = "#f2f2f2";
+}
+var collection = document.querySelector(".collection");
+var collectionlist = document.querySelector(".collection_list");
+collection.onmouseover = function () {
+    collectionlist.style.display = "block";
+}
+collection.onmouseout = function () {
+    collectionlist.style.display = "none";
+}
+collectionlist.onmouseover = function () {
+    collectionlist.style.display = "block";
+    collection.style.background = "white";
+}
+collectionlist.onmouseout = function () {
+    collectionlist.style.display = "none";
+    collection.style.background = "#f2f2f2";
+}
+var baoguo = document.querySelector(".baoguo1");
+var baoguolist = document.querySelector(".baoguo_list");
+baoguo.onmouseover = function () {
+    baoguolist.style.display = "block";
+}
+baoguo.onmouseout = function () {
+    baoguolist.style.display = "none";
+}
+baoguolist.onmouseover = function () {
+    baoguolist.style.display = "block";
+    baoguo.style.background = "white";
+}
+baoguolist.onmouseout = function () {
+    baoguolist.style.display = "none";
+    baoguo.style.background = "#f2f2f2";
+}
+
+var baoguo3 = document.querySelector(".baoguo3");
+var baoguolist3 = document.querySelector(".baoguo3_list");
+
+baoguo3.onmouseover = function () {
+    baoguolist3.style.display = "block";
+}
+baoguo3.onmouseout = function () {
+    baoguolist3.style.display = "none";
+}
+baoguolist3.onmouseover = function () {
+    baoguolist3.style.display = "block";
+    baoguo3.style.background = "white";
+}
+baoguolist3.onmouseout = function () {
+    baoguolist3.style.display = "none";
+    baoguo3.style.background = "#f2f2f2";
+}
+
+var lilist = document.querySelectorAll(".li1");
+var li1black = document.querySelectorAll(".li1black");
+console.log(lilist);
+for (let t = 0; t < lilist.length; t++) {
+    lilist[t].onmouseover = function () {
+        li1black[t].style.display = "block";
+    }
+    lilist[t].onmouseout = function () {
+        li1black[t].style.display = "none";
+    }
+}
+
+
+
+
+
+
+
+
+
 var title = document.querySelectorAll(".grid1_text");
 var shops = document.querySelectorAll(".grid1_img");
 console.log(title);
@@ -59,6 +174,9 @@ function css(obj, attr, val) {
             case "opacity":
                 return getComputedStyle(obj, null)[attr];
                 break;
+            case "scrollTop":
+                return obj[attr];
+                break;
             default:
                 return parseInt(getComputedStyle(obj, null)[attr]);
         }
@@ -67,7 +185,12 @@ function css(obj, attr, val) {
             case "background":
             case "color":
             case "opacity":
-                obj.style[attr] = val
+                obj.style[attr] = val;
+                break;
+            case "scrollTop":
+                obj[attr] = val;
+                break;
+
             default:
                 obj.style[attr] = val + "px";
         }
@@ -169,8 +292,15 @@ for (let h = 0; h < but.length; h++) {
 
 var topsearch = document.querySelector(".topsearch");
 var fenlei = document.querySelector(".fenlei");
+var navlist = document.querySelectorAll(".fenlei ul li:not(.backtop):not(.backnav)");
+var shoplist = document.querySelectorAll(".container2");
+var navListLast = document.querySelector(".fenlei ul li:last-child");
+console.log()
+
+console.log();
 window.onscroll = function () {
     var st = document.documentElement.scrollTop;
+
     if (st > 1000) {
         animate(topsearch, {
             top: 0
@@ -185,6 +315,47 @@ window.onscroll = function () {
     } else {
         fenlei.style.transform = "scale(0,0)"
     }
-}
 
+    for (var x = 0; x < navlist.length; x++) {
+        if (st >= navlist[x].top && st <= navlist[x].top + parseInt(getComputedStyle(shoplist[x], null).height)) {
+            for (var j = 0; j < navlist.length; j++) {
+                navlist[j].style.background = "rgba(0,0,0,.6)";
+            }
+            navlist[x].style.background = navlist[x].getAttribute('color');
+        }
+    }
+    for (var s = 0; s < navlist.length; s++) {
+        if (navlist[s].top - document.documentElement.clientHeight - 100 < st) {
+            if (!navlist[s].flag) {
+                var imgs = shoplist[s].querySelectorAll("img");
+                for (var t = 0; t < imgs.length; t++) {
+                    imgs[t].src = imgs[t].getAttribute("attr");
+
+                }
+                navlist[s].flag = true;
+            }
+
+        }
+    }
+
+
+
+
+}
+//底部导航栏事件
+for (var i = 0; i < navlist.length; i++) {
+    navlist[i].top = shoplist[i].offsetTop;
+
+    navlist[i].onclick = function () {
+        animate(document.documentElement, {
+            scrollTop: this.top + 50,
+        }, 500)
+    }
+
+}
+navListLast.onclick = function () {
+    animate(document.documentElement, {
+        scrollTop: 0
+    }, 500)
+}
 
